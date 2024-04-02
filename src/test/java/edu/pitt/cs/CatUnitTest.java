@@ -32,6 +32,9 @@ public class CatUnitTest {
 		// Passing InstanceType.MOCK as the first parameter will create a mock cat using Mockito.
 		// Which type is the correct choice for this unit test?  I'll leave it up to you.  The answer is in the Unit Testing Part 2 lecture. :)
 		// TODO: Fill in
+
+
+		c = Cat.createInstance(InstanceType.IMPL, 1, "Jennyanydots");
 	}
 
 	@After
@@ -53,6 +56,9 @@ public class CatUnitTest {
 	@Test
 	public void testGetId() {
 		// TODO: Fill in
+		int retVal = c.getId();
+		assertEquals(1, retVal);
+		
 	}
 
 	/**
@@ -67,6 +73,8 @@ public class CatUnitTest {
 	@Test
 	public void testGetName() {
 		// TODO: Fill in
+		String retVal = c.getName();
+		assertEquals("Jennyanydots", retVal);
 	}
 
 	/**
@@ -81,6 +89,8 @@ public class CatUnitTest {
 	@Test
 	public void testGetRented() {
 		// TODO: Fill in
+		boolean retVal = c.getRented();
+		assertFalse(retVal);
 	}
 
 	/**
@@ -95,6 +105,8 @@ public class CatUnitTest {
 	@Test
 	public void testToString() {
 		// TODO: Fill in
+		String retVal = c.toString();
+		assertEquals("ID 1. Jennyanydots", retVal);
 	}
 
 	/**
@@ -110,6 +122,9 @@ public class CatUnitTest {
 	@Test
 	public void testRentCat() {
 		// TODO: Fill in
+		c.rentCat();
+		boolean retVal = c.getRented();
+		assertTrue(retVal);
 	}
 
 	/**
@@ -126,6 +141,9 @@ public class CatUnitTest {
 	@Test
 	public void testReturnCat() {
 		// TODO: Fill in
+		c.returnCat();
+		boolean retVal = c.getRented();
+		assertFalse(retVal);
 	}
 
 	/**
@@ -141,6 +159,9 @@ public class CatUnitTest {
 	@Test
 	public void testRenameCat() {
 		// TODO: Fill in
+		c.renameCat("Garfield");
+		assertEquals("Garfield", c.getName());
+		assertEquals("ID 1. Garfield", c.toString());
 	}
 
 }
